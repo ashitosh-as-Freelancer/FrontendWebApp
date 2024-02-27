@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Button from "../ui/Button";
-import bg1 from "../assets/v3.jpg";
+import bg1 from "/v3.jpg";
 
 const StyledContact = styled.div`
   position: relative;
@@ -59,8 +59,8 @@ const StyledForm = styled.form`
   }
 
   @media (min-width: 768px) {
-    width: 70%;
-    padding: 20px 40px;
+    max-width: 500px;
+    padding: 40px 30px;
     margin: auto;
   }
 `;
@@ -76,23 +76,19 @@ export default function Contact() {
     <StyledContact>
       {!submit ? (
         <StyledForm action="" onSubmit={handleFormSubmit}>
-          <div className="contact">Contact Us</div>
+          <div className="contact">Login</div>
           <div>
             <label htmlFor="">Name</label>
             <input type="text" />
           </div>
-          <div>
+          <div className="mb-3">
             <label htmlFor="">Email</label>
             <input type="text" />
           </div>
-          <div>
-            <label htmlFor="">Comments</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-          </div>
-          <Button className="w-100">Submit</Button>
+          <Button className="w-100">Login</Button>
         </StyledForm>
       ) : (
-        <div className="contact-submit">Thanks for your Response</div>
+        <div className="contact-submit">Login Successful</div>
       )}
     </StyledContact>
   );

@@ -29,7 +29,7 @@ const StyledBanner = styled.div`
     }
 
     p {
-      font-size: 19px;
+      font-size: 21px;
     }
 
     &.left {
@@ -42,6 +42,10 @@ const StyledBanner = styled.div`
 
     @media screen and (min-width: 992px) {
       max-width: 50%;
+
+      h2 {
+        font-size: 50px;
+      }
     }
   }
 `;
@@ -52,7 +56,7 @@ export default function Banner({ img, heading, desc, contentType }) {
       <div className="blur"></div>
       <picture className="d-flex">
         <source media="(min-width:992px)" srcset={img.desk} />
-        <img src={img.mobile} alt="Flowers" />
+        <img src={img.mobile} alt="banner" />
       </picture>
       <div className={`content ${contentType}`}>
         <h2>{heading}</h2>

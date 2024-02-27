@@ -1,0 +1,30 @@
+import productData from "../data";
+import styled from "styled-components";
+import ProductCard from "../components/global/ProductCard";
+import Row from "../ui/Row";
+import Container from "../ui/Container";
+import bg from '../assets/v2.jpg';
+
+const Pizza = styled.div`
+  position: relative;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background: url(${bg}) no-repeat;
+  background-size: 100%;
+`;
+
+export default function Todays() {
+  return (
+    <Pizza>
+    <Container>
+      <Row>
+        {productData.map((item) => {
+          return (
+            <ProductCard key={item.id} product={item} />
+          );
+        })}
+      </Row>
+    </Container>
+    </Pizza>
+  );
+}

@@ -45,6 +45,15 @@ img {
 .flex-wrap {
   flex-wrap: wrap;
 }
+
+.mb-2 {
+  margin-bottom: 4px;
+}
+
+.mb-3 {
+  margin-bottom: 6px;
+}
+
 `;
 
 export default GlobalStyles;

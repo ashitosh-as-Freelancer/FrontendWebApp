@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const StyledButton = styled.button`
-    background-color: var(--black);
+const Button = styled.button`
+    background-color: rgba(0, 0, 0, 0.5);
     color: var(--white);
     padding: 13px 10px;
     outline: none;
@@ -11,12 +11,11 @@ const StyledButton = styled.button`
     width: 100%;
     border: 1px solid var(--white);
     border-radius: 5px;
+
+    &:hover {
+      background-color: #fff;
+      color: #000;
+    }
 `;
 
-export default function Button({children}) {
-  return (
-    <StyledButton>
-      {children}
-    </StyledButton>
-  )
-}
+export default Button;

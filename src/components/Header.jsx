@@ -4,6 +4,8 @@ import Close from "../ui/Close";
 import { useState } from "react";
 import { FaHamburger } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
+import { miniCartStatus } from "../slices/basketSlice";
+import {useDispatch} from 'react-redux';
 
 const StyledHeader = styled.header`
   position: fixed;
@@ -77,7 +79,7 @@ const StyledHeader = styled.header`
       height: 100%;
       width: 100%;
       background-color: var(--black);
-      opacity: 0.8;
+      opacity: 0.6;
       z-index: -1;
       left: 0;
       top: 0;
@@ -148,6 +150,7 @@ const StyledHeader = styled.header`
 
 export default function Header() {
   const [headerOpen, setHeaderOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const handleClose = () => {
     setHeaderOpen((prevState) => !prevState);
@@ -178,25 +181,39 @@ export default function Header() {
         <nav>
           <ul className="d-flex flex-wrap">
             <li className="nav-item">
-              {" "}
               <NavLink onClick={handleLink} to="/">
                 Home
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink onClick={handleLink} to="/blog">
-                Blogs
+              <NavLink onClick={handleLink} to="/todays">
+                Todays Special
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink onClick={handleLink} to="/about">
-                About
+              <NavLink onClick={handleLink} to="/pizzas">
+                Pizzas
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink onClick={handleLink} to="/offers">
+                Offers
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink onClick={handleLink} to="/new">
+                New
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink onClick={handleLink} to="/contact">
-                Contact
+                Login
               </NavLink>
+            </li>
+            <li className="nav-item">
+              <a onClick={()=> {dispatch(miniCartStatus(true))}}>
+                Cart
+              </a>
             </li>
           </ul>
         </nav>
