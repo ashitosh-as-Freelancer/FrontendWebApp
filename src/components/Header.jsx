@@ -176,7 +176,7 @@ export default function Header() {
           {!headerOpen && (
             <FaHamburger className="burger" onClick={handleClose} />
           )}
-          <NavLink to="/">PizzaBlog</NavLink>
+          <NavLink to="/">PizzaStore</NavLink>
         </h1>
         <nav>
           <ul className="d-flex flex-wrap">

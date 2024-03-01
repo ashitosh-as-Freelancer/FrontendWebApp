@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import Close from "../ui/Close";
 import { useDispatch } from "react-redux";
-import { miniCartStatus, removeProduct } from "../slices/basketSlice";
+import { addQuantity, miniCartStatus, removeProduct, removeQuantity } from "../slices/basketSlice";
 
 const StyledMiniCart = styled.div`
   box-shadow: 0 0 10px var(--white);
@@ -22,7 +22,7 @@ const StyledMiniCart = styled.div`
   }
 
   .item-container {
-    height: 82vh;
+    height: 90vh;
     overflow-y: scroll;
   }
 
@@ -33,9 +33,27 @@ const StyledMiniCart = styled.div`
     cursor: pointer;
   }
 
+  .min-item {
+    position: relative;
+  }
+
   .min-item-img {
     width: 120px;
     margin-right: 15px;
+  }
+
+  .qty-btn {
+    display: inline-block;
+    font-size: 20px;
+    text-align: center;
+    border: 1px solid var(--white);
+    vertical-align: middle;
+    cursor: pointer;
+    padding: 2px 8px;
+  }
+
+  .qty {
+    margin: 0 10px;
   }
 `;
 
@@ -55,13 +73,23 @@ export default function MiniCart() {
         {basket.items.map((item) => {
           return (
             <div key={item.id} className="min-item d-flex mb-3">
-               <div className="remove-item" onClick={()=> dispatch(removeProduct({id: item.id}))}>X</div>
+              <div
+                className="remove-item"
+                onClick={() => dispatch(removeProduct({ id: item.id }))}
+              >
+                X
+              </div>
               <div className="min-item-img">
                 <img src={item.img.src} alt={item.img.alt} />
               </div>
               <div>
                 <p>{item.name}</p>
-                <p>{item.price}</p>
+                <p className="mb-3">{item.price}</p>
+                <div className="d-flex">
+                  <button onClick={()=> dispatch(addQuantity({ id: item.id }))} className="qty-btn">+</button>
+                  <div className="qty">{item.qty}</div>
+                  <button onClick={()=> dispatch(removeQuantity({ id: item.id }))} className="qty-btn">-</button>
+                </div>
               </div>
             </div>
           );

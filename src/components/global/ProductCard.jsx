@@ -10,7 +10,7 @@ const StyledCard = styled.div`
 
   .pr {
     margin-bottom: 20px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
     box-shadow: 0 0 8px #fff;
   }
 
